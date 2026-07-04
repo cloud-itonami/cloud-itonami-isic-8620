@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-8620`
+- Repository: `cloud-itonami-isic-8620`
 - ISIC Rev.5: `8620`
 - Activity: medical and dental practice activities -- outpatient consultation, diagnosis and treatment by licensed physicians/dentists
 - Social impact: care quality, data sovereignty, transparent audit

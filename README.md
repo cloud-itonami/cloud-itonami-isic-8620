@@ -1,4 +1,4 @@
-# cloud-itonami-8620
+# cloud-itonami-isic-8620
 
 Open Business Blueprint for **ISIC Rev.5 8620**: Medical and dental practice activities.
 

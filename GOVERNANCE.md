@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-8620` is an OSS open-business blueprint for medical and dental practice activities -- outpatient consultation, diagnosis and treatment by licensed physicians/dentists.
+`cloud-itonami-isic-8620` is an OSS open-business blueprint for medical and dental practice activities -- outpatient consultation, diagnosis and treatment by licensed physicians/dentists.
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers

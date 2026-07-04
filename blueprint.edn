@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-8620"
+{:itonami.blueprint/id "cloud-itonami-isic-8620"
  :itonami.blueprint/name "Medical and dental practice activities"
  :itonami.blueprint/isic-rev5 "8620"
  :itonami.blueprint/domain :health/medical-dental-practice
