@@ -31,7 +31,14 @@
 ## Trust Controls
 
 - no treatment, prescription or procedure is administered without human sign-off (licensed physician/dentist)
-- a fabricated diagnosis forces a hold, not an override
-- every treatment path is auditable
+- a fabricated jurisdiction licensing citation, incomplete licensing
+  evidence, a proposed treatment that appears on the patient's own
+  recorded contraindication list, or a lapsed clinician license -- each
+  forces a hold, not an override
+- an encounter cannot be treated twice: a double-administration attempt
+  is held off this actor's own encounter facts alone, with no upstream
+  comparison needed
+- every intake, assessment, screening and administration path is
+  auditable
 - patient health data stays outside Git
 - emergency manual override paths remain outside LLM control
