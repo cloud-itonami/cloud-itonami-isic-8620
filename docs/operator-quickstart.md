@@ -2,6 +2,12 @@
 
 Get the Medical and dental practice activities actor (`cloud-itonami-isic-8620`) running locally in 5 minutes.
 
+## Who This Is For
+
+- **Licensed physicians and dentists** in any jurisdiction who need a governed, spec-cited compliance scaffold for patient intake, licensing assessment, and treatment administration
+- **Practice operators** who want to fork and deploy this blueprint as their own open business, with an independent Governor verifying every high-stakes decision
+- **Developers** exploring the LLM+Governor pattern and how an autonomous actor layer enforces trust controls without license itself
+
 ## Prerequisites
 
 - **Clojure** — `clojure` CLI tool (e.g. `brew install clojure/tools/clojure` on macOS, or [download](https://clojure.org/guides/install_clojure))
@@ -53,15 +59,14 @@ open docs/operator-guide.md
 
 ## The Governor
 
-The **Clinical Practice Governor** is the independent verification layer that seals the ClinicOps-LLM and enforces trust controls. See:
+The **Clinical Practice Governor** (`src/clinic/governor.cljc`) is the independent verification layer that seals the ClinicOps-LLM and enforces trust controls. It gates every treatment administration decision with four hard checks:
 
-- **Definition** — `src/clinic/governor.cljc` — four hard-gate functions
-  - `spec-basis?` — is the jurisdiction requirement cited from an official spec?
-  - `evidence-complete?` — is the licensing proof sufficient?
-  - `treatment-contraindicated?` — does the proposed treatment appear on the patient's own contraindication list?
-  - `credential-current?` — is the treating clinician's license up to date?
-- **Tests** — `test/clinic/governor_test.clj` — each gate is verified independently
-- **Integration** — `src/clinic/operation.cljc` — the OperationActor routes all high-stakes decisions through the governor
+- **`spec-basis?`** — Is the jurisdiction requirement cited from an official spec? (Fabricated requirements are rejected outright.)
+- **`evidence-complete?`** — Is the licensing proof sufficient for the jurisdiction?
+- **`treatment-contraindicated?`** — Does the proposed treatment appear on the patient's own contraindication set? (Set-membership check, not inference.)
+- **`credential-current?`** — Is the treating clinician's license up to date? (Unconditional evaluation; no workarounds.)
+
+The governor is tested independently (`test/clinic/governor_test.clj`) and integrated into the OperationActor (`src/clinic/operation.cljc`), which routes all high-stakes decisions through it. No treatment administers past a governor hold; holds cannot be overridden.
 
 ## Linting
 

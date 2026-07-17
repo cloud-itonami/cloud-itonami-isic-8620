@@ -205,7 +205,11 @@
         </div>
 
         <div class="pitch">
-            <p>An open business blueprint for medical and dental practice operations — encounter intake, jurisdiction licensing assessment, clinician-credential screening and treatment administration — built on the LLM+Governor pattern. Patient intake and diagnostic proposals are drafted by a sealed ClinicOps-LLM and independently verified by a Clinical Practice Governor, ensuring no treatment is administered without human sign-off and no fabricated jurisdiction requirements slip through. The actor runs on an immutable audit ledger and is forkable by any qualified, licensed physician or dentist who needs a governed, spec-cited compliance scaffold for their jurisdiction.</p>
+            <p><strong>The problem:</strong> LLMs draft treatment proposals fluently but have no way to verify which jurisdiction requirements are real, which clinician licenses are current, or whether a proposed treatment contradicts a patient's own known conditions — letting one administer treatment directly invites liability.</p>
+
+            <p><strong>The solution:</strong> An independent <strong>Clinical Practice Governor</strong> seals the LLM and enforces four hard gates: treatment proposals must cite real jurisdiction requirements (spec-basis), have complete licensing proof (evidence), avoid patient contraindications (set-membership, not inference), and confirm the clinician's license is current. No treatment administers without human sign-off. Every decision lands on an immutable audit ledger.</p>
+
+            <p><strong>What it is not:</strong> This blueprint does not hold a practice license in any jurisdiction — the operator (licensed physician/dentist) does. It does not model full drug-interaction databases or replace EHR integrations. It supplies the governed, spec-cited, audited execution scaffold so your practice doesn't rebuild the compliance layer from scratch.</p>
         </div>
 
         <div class="ctas">
