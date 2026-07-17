@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical and dental practice activities — cloud-itonami-isic-8620</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .classification {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 6px;
+            border-left: 4px solid #0066cc;
+            font-size: 0.95rem;
+        }
+
+        .classification div {
+            flex: 1;
+        }
+
+        .classification dt {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .classification dd {
+            color: #1a1a1a;
+            font-size: 1rem;
+        }
+
+        .pitch {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 6px;
+            line-height: 1.8;
+        }
+
+        .pitch p {
+            margin-bottom: 1rem;
+        }
+
+        .ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary {
+            background: #0066cc;
+            color: white;
+        }
+
+        .cta-primary:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .cta-secondary {
+            background: #f0f0f0;
+            color: #0066cc;
+            border: 2px solid #0066cc;
+        }
+
+        .cta-secondary:hover {
+            background: #e6f0ff;
+            transform: translateY(-2px);
+        }
+
+        .links {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 6px;
+        }
+
+        .links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .links ul {
+            list-style: none;
+        }
+
+        .links li {
+            margin: 0.75rem 0;
+        }
+
+        .links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .links a:hover {
+            color: #0052a3;
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .classification {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .ctas {
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical and dental practice activities</h1>
+
+        <div class="classification">
+            <div>
+                <dt>ISIC Rev.5</dt>
+                <dd>8620</dd>
+            </div>
+            <div>
+                <dt>Repository</dt>
+                <dd>cloud-itonami-isic-8620</dd>
+            </div>
+            <div>
+                <dt>License</dt>
+                <dd>AGPL-3.0-or-later</dd>
+            </div>
+        </div>
+
+        <div class="pitch">
+            <p>An open business blueprint for medical and dental practice operations — encounter intake, jurisdiction licensing assessment, clinician-credential screening and treatment administration — built on the LLM+Governor pattern. Patient intake and diagnostic proposals are drafted by a sealed ClinicOps-LLM and independently verified by a Clinical Practice Governor, ensuring no treatment is administered without human sign-off and no fabricated jurisdiction requirements slip through. The actor runs on an immutable audit ledger and is forkable by any qualified, licensed physician or dentist who needs a governed, spec-cited compliance scaffold for their jurisdiction.</p>
+        </div>
+
+        <div class="ctas">
+            <a href="https://itonami.cloud/isco-1212/" class="cta cta-primary">Fork + Self-Host</a>
+            <a href="https://itonami.cloud/docs/go-live.md" class="cta cta-secondary">Managed Deployment Guide</a>
+        </div>
+
+        <div class="links">
+            <h3>Documentation &amp; Resources</h3>
+            <ul>
+                <li><a href="https://github.com/com-junkawasaki/cloud-itonami-isic-8620#readme">Repository README</a> — full architecture, scope, and contract</li>
+                <li><a href="operator-quickstart.md">Operator Quickstart</a> — run tests and demos locally</li>
+                <li><a href="business-model.md">Business Model</a> — customer, offer, revenue streams and trust controls</li>
+                <li><a href="operator-guide.md">Operator Guide</a> — deployment and production controls</li>
+                <li><a href="adr/0001-architecture.md">Architecture Decision Record</a> — design rationale and history</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Build with <a href="https://github.com/com-junkawasaki/langgraph-clj">langgraph-clj</a> and <a href="https://github.com/com-junkawasaki/langchain-clj">langchain-clj</a>, part of the <a href="https://github.com/cloud-itonami">cloud-itonami</a> open business blueprints.</p>
+        </div>
+    </div>
+</body>
+</html>
