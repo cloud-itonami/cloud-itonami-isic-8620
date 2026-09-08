@@ -27,7 +27,7 @@
   RECORD a practice would keep, not the act of administering the
   treatment itself (that is `clinic.operation`'s `:treatment/
   administer`, always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is the
@@ -72,7 +72,7 @@
     (throw (ex-info "treatment: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "treatment: sequence must be >= 0" {})))
-  (let [administration-number (str (str/upper-case jurisdiction) "-TX-" (zero-pad sequence 6))
+  (let [administration-number (str (str/upper jurisdiction) "-TX-" (zero-pad sequence 6))
         record {"record_id" administration-number
                 "kind" "treatment-administration-draft"
                 "encounter_id" encounter-id

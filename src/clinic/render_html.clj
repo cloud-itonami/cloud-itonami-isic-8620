@@ -65,7 +65,7 @@
     clojure -M:dev:render-html <out.html>      ; -> explicit path (determinism runs)"
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clinic.facts :as facts]
             [clinic.operation :as op]
             [clinic.store :as store]
