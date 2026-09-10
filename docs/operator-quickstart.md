@@ -59,14 +59,14 @@ open docs/operator-guide.md
 
 ## The Governor
 
-The **Clinical Practice Governor** (`src/clinic/governor.cljc`) is the independent verification layer that seals the ClinicOps-LLM and enforces trust controls. It gates every treatment administration decision with four hard checks:
+The **Clinical Practice Governor** (`src/clinic/governor.kotoba`) is the independent verification layer that seals the ClinicOps-LLM and enforces trust controls. It gates every treatment administration decision with four hard checks:
 
 - **`spec-basis?`** — Is the jurisdiction requirement cited from an official spec? (Fabricated requirements are rejected outright.)
 - **`evidence-complete?`** — Is the licensing proof sufficient for the jurisdiction?
 - **`treatment-contraindicated?`** — Does the proposed treatment appear on the patient's own contraindication set? (Set-membership check, not inference.)
 - **`credential-current?`** — Is the treating clinician's license up to date? (Unconditional evaluation; no workarounds.)
 
-The governor is tested independently (`test/clinic/governor_test.clj`) and integrated into the OperationActor (`src/clinic/operation.cljc`), which routes all high-stakes decisions through it. No treatment administers past a governor hold; holds cannot be overridden.
+The governor is tested independently (`test/clinic/governor_test.clj`) and integrated into the OperationActor (`src/clinic/operation.kotoba`), which routes all high-stakes decisions through it. No treatment administers past a governor hold; holds cannot be overridden.
 
 ## Linting
 
