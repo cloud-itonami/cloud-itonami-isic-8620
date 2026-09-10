@@ -156,7 +156,7 @@ to fix.
   genuinely different domain (healthcare, ISIC division 86) for the
   first time.
 - (+) The actuation invariant (governor + phase, two layers) is
-  regression-tested by `test/clinic/phase_test.clj`'s `treatment-
+  regression-tested by `test/clinic/phase_test.kotoba`'s `treatment-
   administer-never-auto-at-any-phase`.
 - (+) `MemStore` ‖ `DatomicStore` parity is proven by `test/clinic/
   store_contract_test.clj`, the same `:db-api`-driven swap pattern

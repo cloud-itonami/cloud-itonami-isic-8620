@@ -71,7 +71,7 @@ autonomous, at any phase, by construction.** Two independent layers
 enforce this (`clinic.governor`'s `:actuation/administer-treatment`
 high-stakes gate and `clinic.phase`'s phase table, which never puts
 `:treatment/administer` in any phase's `:auto` set) -- see
-`clinic.phase`'s docstring and `test/clinic/phase_test.clj`'s
+`clinic.phase`'s docstring and `test/clinic/phase_test.kotoba`'s
 `treatment-administer-never-auto-at-any-phase`. The actor may draft,
 check and recommend; a human licensed physician/dentist is always the
 one who actually administers a treatment. Like `6511`/`6621`/`6629`/
@@ -151,14 +151,14 @@ stack only -- no bespoke domain capability lib to reference at all.
 
 | File | Role |
 |---|---|
-| `src/clinic/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + treatment-administration history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded encounter, and the double-administration guard checks a dedicated `:treated?` boolean rather than a `:status` value |
-| `src/clinic/registry.cljc` | Treatment-administration draft records, plus `treatment-contraindicated?` -- the FIRST check in this fleet to be a SET-MEMBERSHIP/conflict test rather than an arithmetic comparison (does the proposed treatment appear in the patient's own recorded contraindication set) |
-| `src/clinic/facts.cljc` | Per-jurisdiction medical/dental-licensing catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/clinic/clinicopsllm.cljc` | **ClinicOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/credential-screening/treatment-administration proposals |
-| `src/clinic/governor.cljc` | **Clinical Practice Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · contraindicated, pure ground-truth set-membership recompute · credential-not-current, unconditional evaluation) + already-treated guard + 1 soft (confidence/actuation gate) |
-| `src/clinic/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (treatment always human; encounter intake is the ONLY auto-eligible op, no direct clinical risk) |
-| `src/clinic/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/clinic/sim.cljc` | demo driver |
+| `src/clinic/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + treatment-administration history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded encounter, and the double-administration guard checks a dedicated `:treated?` boolean rather than a `:status` value |
+| `src/clinic/registry.kotoba` | Treatment-administration draft records, plus `treatment-contraindicated?` -- the FIRST check in this fleet to be a SET-MEMBERSHIP/conflict test rather than an arithmetic comparison (does the proposed treatment appear in the patient's own recorded contraindication set) |
+| `src/clinic/facts.kotoba` | Per-jurisdiction medical/dental-licensing catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/clinic/clinicopsllm.kotoba` | **ClinicOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/credential-screening/treatment-administration proposals |
+| `src/clinic/governor.kotoba` | **Clinical Practice Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · contraindicated, pure ground-truth set-membership recompute · credential-not-current, unconditional evaluation) + already-treated guard + 1 soft (confidence/actuation gate) |
+| `src/clinic/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (treatment always human; encounter intake is the ONLY auto-eligible op, no direct clinical risk) |
+| `src/clinic/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/clinic/sim.kotoba` | demo driver |
 | `test/clinic/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
