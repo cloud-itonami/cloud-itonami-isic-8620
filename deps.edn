@@ -22,11 +22,11 @@
   ;; io.github.com-junkawasaki/langchain-clj. langgraph declares the same
   ;; library as io.github.kotoba-lang/langchain, so the entry matched no
   ;; node in the resolved tree and never reached the classpath -- verified
-  ;; with `clojure -Stree`/-Spath, unchanged before and after removal.
+  ;; with `kbb -Stree`/-Spath, unchanged before and after removal.
   :dev {}
-  ;; clojure -M:dev:run  -> drive the demo through one OperationActor
+  ;; kbb -M:dev:run  -> drive the demo through one OperationActor
   :run {:main-opts ["-m" "clinic.sim"]}
-  ;; clojure -M:dev:render-html [out.html]
+  ;; kbb -M:dev:render-html [out.html]
   ;;   -> RUN the actor and render docs/samples/operator-console.html from
   ;;      the real run output. Throws (and writes nothing) if the run
   ;;      produced no HARD governor hold -- see clinic.render-html.

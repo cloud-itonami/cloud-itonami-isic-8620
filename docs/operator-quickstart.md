@@ -20,7 +20,7 @@ Get the Medical and dental practice activities actor (`cloud-itonami-isic-8620`)
 ## Run Tests
 
 ```bash
-clojure -M:dev:test
+kbb -M:dev:test
 ```
 
 This runs the full test suite covering:
@@ -33,7 +33,7 @@ This runs the full test suite covering:
 ## Run the Demo
 
 ```bash
-clojure -M:dev:run
+kbb -M:dev:run
 ```
 
 This drives one clean encounter intake + treatment administration through the OperationActor (happy path), plus four hard-hold cases:
@@ -71,7 +71,7 @@ The governor is tested independently (`test/clinic/governor_test.clj`) and integ
 ## Linting
 
 ```bash
-clojure -M:lint
+kbb -M:lint
 ```
 
 Runs `clj-kondo` (no external binary required). Errors fail CI.
