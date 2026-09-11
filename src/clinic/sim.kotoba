@@ -1,5 +1,5 @@
 (ns clinic.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean encounter through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean encounter through
   intake -> jurisdiction licensing assessment -> credential screening
   -> treatment-administration proposal (always escalates) -> human
   approval -> commit, then shows four HARD holds (a jurisdiction with

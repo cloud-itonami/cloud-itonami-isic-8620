@@ -61,8 +61,8 @@
     actor and every approver DISTINCT ids so that confusion cannot pass.
 
   Usage:
-    clojure -M:dev:render-html                 ; -> docs/samples/operator-console.html
-    clojure -M:dev:render-html <out.html>      ; -> explicit path (determinism runs)"
+    kbb -M:dev:render-html                 ; -> docs/samples/operator-console.html
+    kbb -M:dev:render-html <out.html>      ; -> explicit path (determinism runs)"
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]
@@ -774,7 +774,7 @@
                      (str/join (for [m expectation-mismatches] (str "<li>" (esc m) "</li>")))
                      "</ul></div>"))
               (str/join (map :html secs))
-              "<div class=\"footer\"><p>生成: <code>clojure -M:dev:render-html</code> "
+              "<div class=\"footer\"><p>生成: <code>kbb -M:dev:render-html</code> "
               "(<code>src/clinic/render_html.clj</code>)。"
               "入力は <code>clinic.store/seed-db</code> の seed encounter "
               (count (store/all-encounters db)) " 件のみ。"

@@ -140,7 +140,7 @@ verification all passed clean on the first run -- the `already-
 treated-violations` design (Decision 6) and the `contraindicated-
 violations` pure-recompute shape (Decision 3) were both DELIBERATELY
 informed by prior builds' lessons before writing any code. The demo
-(`clojure -M:dev:run`) was still independently verified against the
+(`kbb -M:dev:run`) was still independently verified against the
 printed audit ledger -- basis tags `:no-spec-basis` ·
 `:contraindicated` · `:credential-not-current` · `:already-treated`
 all appear exactly where the sim script intends, and the treatment
