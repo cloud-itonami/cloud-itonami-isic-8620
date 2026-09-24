@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a diagnostic-imaging robot assists physical
+;; patient examination in medical and dental practice (ISIC 8620). Its
+;; physical work: positioning the X-ray flat-panel detector (or an ultrasound
+;; cart probe arm) against the patient, and running the practice's
+;; instrument steriliser, where a wrapped instrument pack must reach the
+;; sterilising temperature through to its centre.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-8620"
+ :cases
+ [{:id :detector-positioning
+   :kind :manipulator
+   :procedure "arm lifts the portable X-ray flat-panel detector from its holder and places it behind the patient's chest"
+   :params {:l1-m 0.55 :l2-m 0.45 :m1-kg 5.0 :m2-kg 3.5
+            :from [0.40 0.00] :to [0.75 0.45] :duration-s 3.0 :steps 500}
+   :sweep {:param :payload-kg :values [2.0 3.0 4.0 5.5 7.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 70.0 :basis "estimate: continuous shoulder torque of a 7 kg-class collaborative arm used beside patients"}
+   :boundary {:lo 0.5 :hi 30.0}}
+  {:id :instrument-pack-sterilise
+   :kind :thermal
+   :procedure "wrapped dental instrument pack in a 134 C steam steriliser; time for the pack centre to reach 132 C (half thickness, symmetric)"
+   :params {:conductivity-w-mk 0.10 :density-kg-m3 400.0 :specific-heat-j-kgk 1200.0
+            :t0-c 20.0 :t-hot-c 134.0 :h-front-w-m2k 500.0 :h-back-w-m2k 0.0
+            :threshold-c 132.0 :duration-s 3600.0 :nodes 11}
+   :sweep {:param :thickness-m :values [0.01 0.015 0.02 0.03 0.04]}
+   :quantity :time-to-threshold-s
+   :limit {:max 900.0 :basis "estimate: pack centre at temperature within 15 minutes so a standard 134 C hold follows inside the cycle; conduction-only pack (no steam penetration) is an estimate"}
+   :boundary {:lo 0.005 :hi 0.06}}]}
