@@ -1,0 +1,23 @@
+{
+  "schema": "itonami.necessity-impact.v1",
+  "necessity_role": "health",
+  "unit": "JPY per first outpatient visit (initial consultation fee, excluding surcharges), insurance price",
+  "baseline": {
+    "cost": 2910,
+    "source": "初診料 291点 x 1点=10円. 291点: 医科診療報酬点数表 区分A000 (令和6年度改定, https://www.mhlw.go.jp/content/12404000/001251499.pdf) and unchanged by the 令和8年度改定 (before/after both 291点, https://www.mhlw.go.jp/content/12400000/001672521.pdf; R8 adds a separate 2-point 外来・在宅物価対応料 surcharge not counted here). 1点=10円: 診療報酬の算定方法 (平成20年厚生労働省告示第59号) 二, https://www.mhlw.go.jp/web/t_doc?dataId=84aa9729&dataType=0&pageNo=1",
+    "as_of": "2026-10-02"
+  },
+  "with_bot": {
+    "cost": null,
+    "source": null,
+    "as_of": null,
+    "n_events": 0
+  },
+  "adopters": {
+    "external_tenants": 0,
+    "source": null
+  },
+  "repo": "cloud-itonami-isic-8620",
+  "isic": "8620",
+  "notes": "baseline: regulated insurance price (patient pays a share); a floor-and-ceiling price, not the provider's cost to serve. with_bot must come from costs of work this repo's actor actually processed (n_events >= 30); never simulated."
+}
